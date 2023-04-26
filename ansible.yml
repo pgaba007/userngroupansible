@@ -1,0 +1,16 @@
+- name: playbook 
+  user onbaording
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: create new group
+    group:
+      name: second-group
+      state: present
+  - name: create new user
+    user:
+      name:second-user
+      shell: /bin/sh
+      groups: second-group
+      append: yes
